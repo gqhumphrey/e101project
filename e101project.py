@@ -3,10 +3,9 @@ from sense_hat import SenseHat
 sense = SenseHat()
 sense.clear()
 
-sense.show_message("Welcome to ()!", scroll_speed=0.075)
-sense.show_message("Press any button to start!", scroll_speed=0.075)
-
 while 1:
+    sense.show_message("Welcome to ()!", scroll_speed=0.06)
+    sense.show_message("Press any button to start!", scroll_speed=0.06)
     for event in sense.stick.get_events():
         if event.action == "pressed":
             sense.clear()
@@ -101,13 +100,9 @@ questions = [
 def get_answer(question_data, question_number):
     question, options, correct_answer = question_data
     sense.clear()
-    sense.show_message(f"Q{question_number}", scroll_speed=0.075)
-    sense.show_message(f"1: {options[0]}", scroll_speed=0.075)
-    sense.show_message(f"2: {options[1]}", scroll_speed=0.075)
-    sense.show_message(f"3: {options[2]}", scroll_speed=0.075)
-    sense.show_message(f"4: {options[3]}", scroll_speed=0.075)
-
+    
     while 1:
+        sense.show_message(f"Q{question_number}: {question}", scroll_speed=0.06)
         for event in sense.stick.get_events():
             if event.action == "pressed":
                 if event.direction == "up":
@@ -123,9 +118,9 @@ question_number = 1
 for question_data in questions:
     user_answer = get_answer(question_data, question_number)
     if user_answer == question_data[2]:
-        sense.show_message("Correct!", text_colour=[0, 255, 0], scroll_speed=0.075)
+        sense.show_message("Correct!", text_colour=[0, 255, 0], scroll_speed=0.06)
     else:
-        sense.show_message("Wrong!", text_colour=[255, 0, 0], scroll_speed=0.075)
+        sense.show_message("Wrong!", text_colour=[255, 0, 0], scroll_speed=0.06)
     question_number += 1
 
 sense.clear()
