@@ -1,6 +1,19 @@
 from sense_hat import SenseHat
 
 sense = SenseHat()
+sense.clear()
+
+sense.show_message("Welcome to ()!", scroll_speed=0.075)
+sense.show_message("Press any button to start!", scroll_speed=0.075)
+
+while 1:
+    for event in sense.stick.get_events():
+        if event.action == "pressed":
+            sense.clear()
+            break
+    else:
+        continue
+    break
 
 questions = [
     ("What is the largest continent?", ["Africa", "Asia", "Europe", "North America"], 1),
