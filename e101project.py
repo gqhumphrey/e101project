@@ -4,7 +4,7 @@ sense = SenseHat()
 sense.clear()
 
 while 1:
-    sense.show_message("Welcome to ()!", scroll_speed=0.06)
+    sense.show_message("Welcome to Mystery Mansion!", scroll_speed=0.06)
     sense.show_message("Press any button to start!", scroll_speed=0.06)
     for event in sense.stick.get_events():
         if event.action == "pressed":
